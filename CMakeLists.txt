@@ -175,6 +175,29 @@ add_test(NAME Triple COMMAND triple.test ${CMAKE_CURRENT_BINARY_DIR} WORKING_DIR
 add_test(NAME Delta COMMAND delta.test ${CMAKE_CURRENT_BINARY_DIR} WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/tests)
 add_test(NAME Changes COMMAND changes.test ${CMAKE_CURRENT_BINARY_DIR} WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/tests)
 
+# Test behaviour when the output buffer is too small, and grows bit by bit
+# Parameters: test_small_output.test  INPUTSIZE  INITIAL_BUFFER_SIZE  OUTPUT_GROWTH_RATE
+add_test(NAME TestSmallOutput_1_1_30 COMMAND test_small_output.test 1 1 30)
+add_test(NAME TestSmallOutput_1_1_1 COMMAND test_small_output.test 1 1 1)
+add_test(NAME TestSmallOutput_20000_1_30 COMMAND test_small_output.test 20000 1 30)
+add_test(NAME TestSmallOutput_20000_1_1 COMMAND test_small_output.test 20000 1 1)
+
+add_test(NAME TestSmallOutput_0_20_0 COMMAND test_small_output.test 0 20 0)
+add_test(NAME TestSmallOutput_0_10_30 COMMAND test_small_output.test 0 10 30)
+add_test(NAME TestSmallOutput_0_0_30 COMMAND test_small_output.test 0 0 30)
+add_test(NAME TestSmallOutput_0_1_1 COMMAND test_small_output.test 0 1 1)
+
+add_test(NAME TestSmallOutput_20000_1000_30 COMMAND test_small_output.test 20000 1000 30)
+add_test(NAME TestSmallOutput_20000_1000_1 COMMAND test_small_output.test 20000 1000 1)
+
+add_test(NAME TestSmallOutput_2000000_16000_16000 COMMAND test_small_output.test 2000000 16000 16000)
+add_test(NAME TestSmallOutput_2000000_16000_30 COMMAND test_small_output.test 2000000 16000 30)
+add_test(NAME TestSmallOutput_2000000_1000_30 COMMAND test_small_output.test 2000000 1000 30)
+add_test(NAME TestSmallOutput_2000000_1000_1 COMMAND test_small_output.test 2000000 1000 1)
+
+add_test(NAME TestSmallOutput_1_1000_30 COMMAND test_small_output.test 1 1000 30)
+add_test(NAME TestSmallOutput_1_1000_1 COMMAND test_small_output.test 1 1000 1)
+
 
 enable_testing()
 

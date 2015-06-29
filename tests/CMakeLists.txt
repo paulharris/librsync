@@ -11,3 +11,8 @@ isprefix.h
 
 
 add_executable(isprefix.driver ${isprefix.driver_SRCS})
+
+include_directories(${CMAKE_BINARY_DIR}/src)
+include_directories(${CMAKE_SOURCE_DIR}/src)
+add_executable(test_small_output.test test_small_output.c)
+target_link_libraries(test_small_output.test rsync)
